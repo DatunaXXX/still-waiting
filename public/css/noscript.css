@@ -1,0 +1,8 @@
+/* Loaded only when JavaScript is off: hide live widgets that would show stale/placeholder values. */
+.counter, .counter-sub, .launch, .room-info, .tv-strip, #ch2, #ch3, #ch4, .osd, .play-hint, .scroll-hint { display: none !important; }
+.noscript-line { max-width: 34em; margin: 12px auto 0; color: var(--text); font-size: 1.1rem; }
+
+.tunnel { height: auto; }
+.stage { position: relative; }
+.tunnel-log { position: static; width: auto; height: auto; overflow: visible; clip: auto; max-width: 1040px; margin: 0 auto; padding: 32px 16px 0 40px; color: var(--muted); }
+.next-event, .scene:empty, .remote { display: none; }

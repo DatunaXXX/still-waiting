@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Still Waiting ($WAITING) - Waiting for GTA VI since 2013. Pat is patient.</title>
+  <meta name="description" content="This is Pat. Pat is patient. A skeleton on a couch, waiting for GTA VI since GTA V came out on September 17, 2013.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="theme-color" content="#05081A">
+  <!-- Open Graph (Studio og.png 1200x630). Paths are RELATIVE on purpose: server/serve.mjs makes them absolute per request,
+       from SITE_URL if set, else from the Cloudflare quick-tunnel host (*.trycloudflare.com). See deploy/KALI-SERVER.md. -->
+  <meta property="og:title" content="Still Waiting - This is Pat. Pat is patient.">
+  <meta property="og:description" content="A skeleton on a couch, waiting for GTA VI since September 17, 2013. He's still waiting.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og.png">
+  <meta property="og:url" content="/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Still Waiting - This is Pat. Pat is patient.">
+  <meta name="twitter:description" content="A skeleton on a couch, waiting since September 17, 2013.">
+  <meta name="twitter:image" content="/assets/og.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><link rel="stylesheet" href="css/noscript.css"></noscript>
+  <link rel="preload" href="assets/pat.svg" as="fetch" crossorigin>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="boot" id="boot" hidden>
+    <p class="our-logo" aria-label="Still Waiting VI"><span class="our-logo-top">Still Waiting</span><span class="our-logo-vi">VI</span></p>
+    <p class="boot-line">Loading GTA VI...</p>
+    <div class="boot-bar"><i></i></div>
+    <p class="boot-pct">0%</p>
+    <p class="boot-skip">Click to stop waiting. Pat can't.</p>
+  </div>
+  <div class="crt" aria-hidden="true"></div>
+  <div class="siren-layer" aria-hidden="true"></div>
+  <div class="banner" id="banner" role="status" hidden><p class="banner-main"></p><p class="banner-sub"></p></div>
+  <p class="stars" id="stars" role="img"></p>
+  <div class="static" id="static" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand"><span class="brand-name">Still Waiting</span> <span class="ticker">$WAITING</span> <a class="top-link" href="https://x.com/datuna_memecoin" target="_blank" rel="noopener noreferrer" aria-label="Still Waiting on X">X</a> <a class="top-link" href="https://t.me/+2deRMCVcFLQ5NmU0" target="_blank" rel="noopener noreferrer" aria-label="Join the Still Waiting Telegram">TG</a></div>
+    <div class="ca" id="ca">
+      <span id="ca-text">Contract address: posted at launch. No CA yet; anyone posting one now is lying.</span>
+      <button type="button" id="ca-copy" class="btn btn-small" hidden>Copy</button>
+    </div>
+  </header>
+
+  <!-- The remote. Five channels work. The sixth is the one everybody is waiting for. -->
+  <nav class="remote" id="remote" aria-label="Channels">
+    <a href="#ch1" aria-label="Channel one: the room">I</a>
+    <a href="#ch2" aria-label="Channel two: the hold line">II</a>
+    <a href="#ch3" aria-label="Channel three: stand still">III</a>
+    <a href="#ch4" aria-label="Channel four: your wait">IV</a>
+    <a href="#ch5" aria-label="Channel five: make your own Pat">V</a>
+    <button type="button" id="ch-six" class="ch-six" aria-label="Channel six: no signal">VI</button>
+    <button type="button" id="sound-toggle" class="sound-toggle">&#9834;</button>
+  </nav>
+  <div class="no-signal" id="no-signal" role="status" hidden>
+    <p class="no-signal-ch">CH VI</p>
+    <p class="no-signal-main">NO SIGNAL</p>
+    <p class="no-signal-sub" id="no-signal-sub"></p>
+  </div>
+
+  <div class="minipat" id="minipat" aria-hidden="true" hidden><img src="assets/kit/thumbs/pat-01-waiting-320.webp" alt="" width="96" height="96" draggable="false"></div>
+  <p class="minipat-says" id="minipat-says" aria-hidden="true" hidden></p>
+  <div class="hoverbike" id="hoverbike" role="button" tabindex="0" aria-label="Pat on his flying bike. Press to fire at the police." hidden></div>
+  <p class="minipat-says" id="bike-says" role="status" hidden></p>
+
+  <main id="main">
+    <!-- CH I: scroll through 13 years in one room -->
+    <section class="tunnel" id="ch1" aria-labelledby="hero-title">
+      <div class="stage" id="stage" data-phase="start">
+        <div class="room" id="room" data-mood="idle">
+          <!-- pat.svg is fetched ONCE (preload -> room.js inlines it). The <img> is only for no-JS, or added by room.js if the fetch fails. -->
+          <noscript><img class="room-fallback" src="assets/pat.svg" alt="Pat, a skeleton, waiting on a couch in front of a TV" width="800" height="500"></noscript>
+          <div class="dust-layer" id="dust-layer" aria-hidden="true"></div>
+          <p class="tv-strip sr-only" id="tv-strip" aria-live="polite"></p>
+        </div>
+        <div class="haze" aria-hidden="true"></div>
+        <p class="osd" aria-hidden="true"><span class="osd-play">&#9654; PLAY</span> <span id="osd-date">SEP 17 2013</span></p>
+        <h1 id="hero-title" class="tagline">This is Pat. <span>Pat is patient.</span></h1>
+        <noscript><p class="noscript-line">Pat has been waiting on this couch since September 17, 2013. Turn on JavaScript to see the live day counter and his room.</p></noscript>
+        <div class="readout">
+          <p class="counter">
+            <span class="counter-label">Day</span>
+            <span class="led" id="days-led" aria-hidden="true"></span>
+            <span class="sr-only" id="days">&nbsp;</span>
+          </p>
+          <p class="caption" id="caption" aria-hidden="true"></p>
+        </div>
+        <p class="scroll-hint" aria-hidden="true">Scroll. Slowly. He did.</p>
+        <p class="play-hint" id="play-hint" aria-hidden="true"><span>Grab his head.</span> <span>Click the TV.</span> <span>Throw the small one.</span> <span>Bother him: get 5 stars.</span> <span>Click the flying bike.</span> <span>Try the window, the clock and the lamp.</span> <span>Make your own Pat on channel V.</span> <span>Type OPPRESSOR.</span></p>
+        <p class="pat-says" id="pat-says" role="status" hidden></p>
+      </div>
+      <ol class="tunnel-log" id="tunnel-log">
+        <li data-p="0">September 17, 2013. GTA V comes out. Pat finishes it and sits down to wait for GTA VI. Just for a minute.</li>
+        <li data-p="0.1">2014. He buys GTA V again, on a newer console. It is research.</li>
+        <li data-p="0.2">2015. The pizza goes cold. Pat calls it aged.</li>
+        <li data-p="0.32">2017. Nothing. A forum post says the map leaked. It was a drawing.</li>
+        <li data-p="0.44">2019. A plant shows up. It believes in him.</li>
+        <li data-p="0.52">2020. The whole world stays home and waits. Pat was early.</li>
+        <li data-p="0.62">2022. He buys GTA V a third time. A spider moves in.</li>
+        <li data-p="0.74">December 2023. The GTA VI trailer. Pat watches it. Pat watches it again. The number is private.</li>
+        <li data-p="0.84">2025. The GTA VI date moves. Then it moves again. Pat does not. The mail piles up.</li>
+        <li data-p="0.97">Today. Day {days}. Same couch. Same remote. GTA VI still has no signal.</li>
+      </ol>
+    </section>
+
+    <section class="after-tunnel">
+      <div class="room-info">
+        <p class="counter-sub">Waiting for GTA VI. Since September 17, 2013. <span id="days-left"></span></p>
+        <p class="scene" id="scene" aria-live="polite"></p>
+        <p class="launch" id="launch" aria-live="polite" hidden>
+          <span class="launch-label" id="launch-label">The room opens in</span>
+          <span class="launch-time" id="launch-time">--:--:--</span>
+          <span class="launch-when" id="launch-when"></span>
+        </p>
+        <p class="next-event">Next event in <strong id="next-event">--:--:--</strong> <span class="muted" id="next-event-at"></span></p>
+        <p class="away" id="away" hidden></p>
+        <p class="market" id="market">Market: closed. Pat is calm.</p>
+        <details class="diary">
+          <summary>Pat's diary</summary>
+          <ol id="diary" reversed></ol>
+        </details>
+      </div>
+    </section>
+
+    <!-- CH II: the hold line -->
+    <section class="channel" id="ch2" aria-labelledby="hold-title">
+      <p class="ch-tag">CH II</p>
+      <h2 id="hold-title">Join Pat on hold.</h2>
+      <p class="lede">He has been on this call with GTA VI since 2013. There is music. There is a menu. Every option leads to option 3.</p>
+      <div class="phone" id="phone" data-state="idle">
+        <div class="lcd">
+          <p class="lcd-line" id="lcd-line" aria-live="polite"></p>
+          <p class="lcd-foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> <span id="lcd-timer">--:--:--</span></p>
+        </div>
+        <div class="keypad" role="group" aria-label="Phone keypad">
+          <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button>
+          <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button>
+          <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button>
+          <button type="button" data-key="*">*</button><button type="button" data-key="0">0</button><button type="button" data-key="#">#</button>
+        </div>
+        <button type="button" class="btn hold-toggle" id="hold-toggle" aria-pressed="false">Call and hold (sound on)</button>
+        <button type="button" class="btn btn-ghost hold-toggle" id="hold-station">Next station</button>
+        <button type="button" class="linkish" id="cheats-toggle">You know the cheats. Forgot them?</button>
+        <div class="cheats-list" id="cheats-list" hidden>
+          <label for="cheat-input">Enter a cheat</label>
+          <input id="cheat-input" type="text" maxlength="12" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="HESOYAM">
+          <p>HESOYAM, AEZAKMI, ROCKETMAN, OPPRESSOR, VICECITY, GTA6, SOON. Or dial 1-999-529-93787 to lawyer up, 1-999-759-3255 for skyfall.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH III: the stand-still test -->
+    <section class="channel channel-still" id="ch3" aria-labelledby="still-title">
+      <p class="ch-tag">CH III</p>
+      <h2 id="still-title">Do nothing. Beat Pat.</h2>
+      <p class="lede">Press start. Then don't touch anything. No mouse, no keys, no scrolling, no other tabs. It is harder than it sounds. Pat's record is 13 years.</p>
+      <p class="still-clock" id="still-clock" role="timer">00:00:00</p>
+      <p class="still-line" id="still-line" aria-live="polite"></p>
+      <button type="button" class="btn" id="still-start">Start waiting</button>
+      <p class="still-best muted" id="still-best"></p>
+      <div class="still-result" id="still-result" hidden>
+        <canvas id="still-canvas" width="1200" height="675" aria-label="Your stand-still card"></canvas>
+        <a class="btn btn-ghost" id="still-download" download="still-waiting-rank.png" href="#">Download my rank</a>
+      </div>
+    </section>
+
+    <!-- CH IV: generator + community -->
+    <section class="channel" id="ch4" aria-labelledby="gen-title">
+      <p class="ch-tag">CH IV</p>
+      <h2 id="gen-title">How long have <em>you</em> been waiting?</h2>
+      <p class="lede">Everything stays on your device. Nothing is uploaded. To share on X, download the card and attach it.</p>
+      <form id="gen-form" class="gen-form" novalidate>
+        <label>I'm waiting for
+          <input id="gen-what" name="what" type="text" maxlength="40" placeholder="a reply, a refund, the sequel..." autocomplete="off" required>
+        </label>
+        <label>Since
+          <input id="gen-date" name="since" type="date" min="1900-01-01" required>
+        </label>
+        <button class="btn" type="submit">Make my card</button>
+        <p class="form-error" id="gen-error" role="alert"></p>
+      </form>
+      <div class="gen-output" id="gen-output" hidden>
+        <canvas id="gen-canvas" width="1200" height="675" aria-label="Your waiting card"></canvas>
+        <div class="gen-actions">
+          <a class="btn" id="gen-download" download="still-waiting.png" href="#">Download PNG</a>
+          <button class="btn btn-ghost" type="button" id="gen-share" hidden>Share</button>
+          <a class="btn btn-ghost" id="gen-x" hidden target="_blank" rel="noopener noreferrer">Share on X</a>
+        </div>
+      </div>
+      <div class="community" id="community">
+        <h3 id="comm-title">The waiting room</h3>
+        <!-- Text from Voice's pack (js/voice-pack.js, communityBlurb). Later: optional `community` from /api/state. -->
+        <p id="community-text" class="muted"></p>
+        <p class="social-row"><a class="btn" href="https://t.me/+2deRMCVcFLQ5NmU0" target="_blank" rel="noopener noreferrer">Join the waiting room</a> <a class="btn btn-ghost" href="https://x.com/datuna_memecoin" target="_blank" rel="noopener noreferrer">Wait with us on X</a></p>
+      </div>
+    </section>
+
+    <!-- CH V: meme kit -->
+    <section class="channel" id="ch5" aria-labelledby="kit-title">
+      <p class="ch-tag">CH V</p>
+      <h2 id="make-title">Make your own Pat.</h2>
+      <p class="lede">Pick a pose, a face, a hat and a sky. Drag him around. Write anything. Download it and post it. Nothing is uploaded.</p>
+      <div class="makepat">
+        <div class="mp-stage">
+          <canvas id="mp-canvas" width="1080" height="1080" aria-label="Your Pat meme. Drag to move Pat."></canvas>
+          <div class="mp-actions">
+            <a class="btn" id="mp-download" download="my-pat.png" href="#">Download my Pat</a>
+            <button type="button" class="btn btn-ghost" id="mp-share" hidden>Share</button>
+            <a class="btn btn-ghost" id="mp-x" target="_blank" rel="noopener noreferrer">Post on X</a>
+          </div>
+          <p class="muted small">To post on X: download first, then attach the picture.</p>
+        </div>
+        <div class="mp-controls">
+          <button type="button" class="btn mp-random" id="mp-random">Surprise me</button>
+          <label class="mp-text">Top text <input id="mp-top" type="text" maxlength="44" autocomplete="off"></label>
+          <label class="mp-text">Bottom text <input id="mp-bottom" type="text" maxlength="44" autocomplete="off"></label>
+          <p class="mp-label">Pose</p><div class="chips" id="mp-poses" role="group" aria-label="Pose"></div>
+          <p class="mp-label">Face</p><div class="chips" id="mp-faces" role="group" aria-label="Face"></div>
+          <p class="mp-label">Hat</p><div class="chips" id="mp-hats" role="group" aria-label="Hat"></div>
+          <p class="mp-label">Background</p><div class="chips" id="mp-backs" role="group" aria-label="Background"></div>
+          <div class="mp-row"><label class="mp-text">Size <input id="mp-zoom" type="range" min="0.5" max="1.6" step="0.02"></label><button type="button" class="chip" id="mp-flip">Flip</button></div>
+        </div>
+      </div>
+      <h2 id="kit-title" class="kit-heading">Free meme kit</h2>
+      <p class="lede">Still waiting for ___. Take Pat, make it yours.</p>
+      <figure class="poster" aria-label="Pat's own cover art: six scenes of Pat waiting">
+      <p class="our-logo"><span class="our-logo-top">Still Waiting</span><span class="our-logo-vi">VI</span></p>
+      <ul>
+        <li class="poster-panel p-sun"><img src="assets/kit/thumbs/pat-01-waiting-320.webp" alt="" loading="lazy" width="320" height="320"><span>Pat<small>Waiting</small></span></li>
+        <li class="poster-panel p-teal"><img src="assets/kit/thumbs/pat-02-hope-320.webp" alt="" loading="lazy" width="320" height="320"><span>Hope<small>Day 1</small></span></li>
+        <li class="poster-panel p-violet"><img src="assets/kit/thumbs/pat-05-clicking-320.webp" alt="" loading="lazy" width="320" height="320"><span>Refresh<small>Again</small></span></li>
+        <li class="poster-panel p-night"><img src="assets/kit/thumbs/pat-03-despair-320.webp" alt="" loading="lazy" width="320" height="320"><span>Delay<small>Twice</small></span></li>
+        <li class="poster-panel p-rose"><img src="assets/kit/thumbs/pat-04-breakdown-320.webp" alt="" loading="lazy" width="320" height="320"><span>Breakdown<small>2025</small></span></li>
+        <li class="poster-panel p-gold"><img src="assets/kit/thumbs/pat-06-it-happened-320.webp" alt="" loading="lazy" width="320" height="320"><span>It happened<small>Maybe</small></span></li>
+      </ul>
+      </figure>
+      <ul class="kit-grid" id="kit">
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-01-waiting-320.webp" alt="Pat, pose 01: Waiting" loading="lazy" width="320" height="320">
+          <span class="kit-name">01 Waiting</span>
+          <span class="kit-links"><a href="assets/kit/pat-01-waiting.png" download>PNG</a> <a href="assets/kit/pat-01-waiting.svg" download>SVG</a> <a href="assets/kit/stickers/pat-01-waiting-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-01-waiting-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-02-hope-320.webp" alt="Pat, pose 02: Hope" loading="lazy" width="320" height="320">
+          <span class="kit-name">02 Hope</span>
+          <span class="kit-links"><a href="assets/kit/pat-02-hope.png" download>PNG</a> <a href="assets/kit/pat-02-hope.svg" download>SVG</a> <a href="assets/kit/stickers/pat-02-hope-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-02-hope-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-03-despair-320.webp" alt="Pat, pose 03: Despair" loading="lazy" width="320" height="320">
+          <span class="kit-name">03 Despair</span>
+          <span class="kit-links"><a href="assets/kit/pat-03-despair.png" download>PNG</a> <a href="assets/kit/pat-03-despair.svg" download>SVG</a> <a href="assets/kit/stickers/pat-03-despair-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-03-despair-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-04-breakdown-320.webp" alt="Pat, pose 04: Breakdown" loading="lazy" width="320" height="320">
+          <span class="kit-name">04 Breakdown</span>
+          <span class="kit-links"><a href="assets/kit/pat-04-breakdown.png" download>PNG</a> <a href="assets/kit/pat-04-breakdown.svg" download>SVG</a> <a href="assets/kit/stickers/pat-04-breakdown-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-04-breakdown-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-05-clicking-320.webp" alt="Pat, pose 05: Clicking" loading="lazy" width="320" height="320">
+          <span class="kit-name">05 Clicking</span>
+          <span class="kit-links"><a href="assets/kit/pat-05-clicking.png" download>PNG</a> <a href="assets/kit/pat-05-clicking.svg" download>SVG</a> <a href="assets/kit/stickers/pat-05-clicking-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-05-clicking-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-06-it-happened-320.webp" alt="Pat, pose 06: It happened" loading="lazy" width="320" height="320">
+          <span class="kit-name">06 It happened</span>
+          <span class="kit-links"><a href="assets/kit/pat-06-it-happened.png" download>PNG</a> <a href="assets/kit/pat-06-it-happened.svg" download>SVG</a> <a href="assets/kit/stickers/pat-06-it-happened-sticker-512.webp" download>Sticker</a> <a href="assets/kit/emoji-128/pat-06-it-happened-128.png" download>Emoji</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/pat-couch-320.webp" alt="Pat on the couch at night, TV glowing (full scene with background)" loading="lazy" width="320" height="320">
+          <span class="kit-name">On the couch</span>
+          <span class="kit-links"><a href="assets/kit/pat-couch.png" download>PNG (with background)</a> <a href="assets/kit/pat-couch.svg" download>SVG</a></span>
+        </li>
+        <li class="kit-item">
+          <img src="assets/kit/thumbs/seat-couch-night-320.webp" alt="The couch, empty, night version" loading="lazy" width="320" height="320">
+          <span class="kit-name">The couch</span>
+          <span class="kit-links"><a href="assets/kit/seat-couch-night.png" download>PNG</a> <a href="assets/kit/seat-couch-night.svg" download>SVG</a></span>
+        </li>
+      </ul>
+      <p class="muted small">Poses: transparent PNG (1024 px), SVG, Telegram sticker (512 px WEBP) and 128 px emoji. "On the couch" is a full scene (opaque PNG with background).</p>
+      <p class="muted small kit-addons">Sticker add-ons:
+        <a href="assets/kit/stickers/addon-headset-sticker-512.webp" download>headset</a>
+        <a href="assets/kit/stickers/addon-snapback-sticker-512.webp" download>snapback</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- APPROVED(site footer source-of-truth line + disclaimer): Voice 2026-11-03, Datuna 2026-11-03 02:10 IL ("מאשר את כל 10 הטקסטים של Voice"). = SOURCE_OF_TRUTH_SITE in js/shared-copy.js (check.mjs keeps them equal). -->
+    <p class="source-of-truth"><strong>The only real site link is the one in our X bio (@datuna_memecoin) and in the pinned Telegram message. Anything else is fake.</strong></p>
+    <p class="tm-note">GTA and Grand Theft Auto are trademarks of their owners. This is a fan joke about waiting, not their product.</p>
+    <p>Meme coin for fun. No utility, no promises, not financial advice. Not affiliated with any game publisher. We never DM first.</p>
+  </footer>
+</body>
+</html>

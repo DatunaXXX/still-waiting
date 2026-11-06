@@ -1,4 +1,5 @@
-// The TV in the room really changes channel. Click it (or press , and . on a keyboard). Five channels play. VI does not.
+// The TV in the room really changes channel. Click it (or press , and . on a keyboard). The first click shows Pat's dream
+// (a community picture Datuna approved as-is on 2026-11-06), then five channels play. VI does not.
 const W = 288; const H = 200;
 const NS = 'http://www.w3.org/2000/svg';
 const XHTML = 'http://www.w3.org/1999/xhtml';
@@ -11,7 +12,20 @@ const text = (c, str, x, y, size, color = CREAM, align = 'center', weight = 700)
 let dvd = { x: 30, y: 40, vx: 1.1, vy: 0.8, hue: 0, bounces: 0 };
 const TICKER = 'BREAKING: STILL NOTHING  +++  LOCAL SKELETON REMAINS SEATED  +++  GTA VI EXPERTS SAY SOON  +++  THEY SAID THAT IN 2014  +++  ';
 
+// Pat's dream: a picture, slowly panned top to bottom and back (still when reduced motion is on).
+const dream = new Image();
+dream.decoding = 'async';
+dream.src = 'assets/tv/dream.jpg';
+
 const CHANNELS = [
+  { name: 'DREAM', line: 'Pat dozed off. He dreams in purple.', draw(c, t, still) {
+    c.fillStyle = '#1A0B2E'; c.fillRect(0, 0, W, H);
+    if (!dream.complete || !dream.naturalWidth) { text(c, 'TUNING IN…', W / 2, H / 2 + 8, 20); return; }
+    const sw = dream.naturalWidth; const sh = sw * H / W; // fill the screen width, show a band of the height
+    const room = dream.naturalHeight - sh;
+    const k = still ? 0.5 : (1 - Math.cos(t / 9000)) / 2;
+    c.drawImage(dream, 0, room * k, sw, sh, 0, 0, W, H);
+  } },
   { name: 'I', line: 'Pat has seen this one.', draw(c, t) {
     c.fillStyle = '#0B1E5A'; c.fillRect(0, 0, W, H);
     c.fillStyle = RED; c.fillRect(0, 22, 118, 24); text(c, 'BREAKING', 59, 40, 18);
@@ -91,7 +105,7 @@ export function mountTvChannels({ room, byId, onChange }) {
         for (let i = 0; i < img.data.length; i += 4) { const v = Math.random() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
         c.putImageData(img, 0, 0);
       } else {
-        CHANNELS[current].draw(c, now);
+        CHANNELS[current].draw(c, now, reduce);
         c.textBaseline = 'alphabetic';
         text(c, 'CH ' + CHANNELS[current].name, W - 12, 24, 18, '#7CFF8A', 'right');
       }

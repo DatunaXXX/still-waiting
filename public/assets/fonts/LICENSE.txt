@@ -1,0 +1,3 @@
+Fonts in this folder are subsets of open fonts, licensed under the SIL Open Font License 1.1 (https://openfontlicense.org).
+- lato-black-italic.woff2: Lato Black Italic, (c) 2010-2011 Lukasz Dziedzic.
+- opensans-cond-xbold-italic.woff2: Open Sans Condensed ExtraBold Italic, (c) 2020 The Open Sans Project Authors.

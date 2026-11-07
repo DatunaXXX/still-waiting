@@ -6,7 +6,7 @@
   <title>Still Waiting ($WAITING) - Waiting for GTA VI since 2013. Pat is patient.</title>
   <meta name="description" content="This is Pat. Pat is patient. A skeleton on a couch, waiting for GTA VI since GTA V came out on September 17, 2013.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <meta name="theme-color" content="#05081A">
+  <meta name="theme-color" content="#13061F">
   <!-- Open Graph (Studio og.png 1200x630). Paths are RELATIVE on purpose: server/serve.mjs makes them absolute per request,
        from SITE_URL if set, else from the Cloudflare quick-tunnel host (*.trycloudflare.com). See deploy/KALI-SERVER.md. -->
   <meta property="og:title" content="Still Waiting - This is Pat. Pat is patient.">
@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="A skeleton on a couch, waiting since September 17, 2013.">
   <meta name="twitter:image" content="https://still-waiting.pages.dev/assets/og.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/lato-black-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <noscript><link rel="stylesheet" href="css/noscript.css"></noscript>
   <link rel="preload" href="assets/pat.svg" as="fetch" crossorigin>
@@ -26,6 +27,13 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <!-- Spray-paint edge for the graffiti lettering (css: .spray). Our own effect, no font of anyone else's. -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="spray" x="-5%" y="-10%" width="110%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
   <div class="boot" id="boot" hidden>
     <p class="our-logo" aria-label="Still Waiting VI"><span class="our-logo-top">Still Waiting</span><span class="our-logo-vi">VI</span></p>
     <p class="boot-line">Loading GTA VI...</p>
@@ -80,7 +88,7 @@
         </div>
         <div class="haze" aria-hidden="true"></div>
         <p class="osd" aria-hidden="true"><span class="osd-play">&#9654; PLAY</span> <span id="osd-date">SEP 17 2013</span></p>
-        <h1 id="hero-title" class="tagline">This is Pat. <span>Pat is patient.</span></h1>
+        <h1 id="hero-title" class="tagline"><span class="g-wait spray">Waiting</span> <span class="g-for spray">for</span> <span class="g-vi">GTA VI</span> <span class="tag-sub">This is Pat. Pat is patient.</span></h1>
         <noscript><p class="noscript-line">Pat has been waiting on this couch since September 17, 2013. Turn on JavaScript to see the live day counter and his room.</p></noscript>
         <div class="readout">
           <p class="counter">
@@ -108,8 +116,14 @@
       </ol>
     </section>
 
+    <div class="horizon" aria-hidden="true"><span class="horizon-sun"></span><span class="horizon-grid"></span></div>
     <section class="after-tunnel">
+      <figure class="vhs-cover">
+        <img src="assets/art/vhs-1985.webp" alt="Pat on the couch with his dog, a VHS cover that says Waiting for GTA VI" width="900" height="959" loading="lazy">
+        <figcaption><span>&#9654; PLAY</span><span>SP</span></figcaption>
+      </figure>
       <div class="room-info">
+        <p class="ch-tag">LIVE FROM THE COUCH</p>
         <p class="counter-sub">Waiting for GTA VI. Since September 17, 2013. <span id="days-left"></span></p>
         <p class="scene" id="scene" aria-live="polite"></p>
         <p class="launch" id="launch" aria-live="polite" hidden>
@@ -129,6 +143,8 @@
 
     <!-- CH II: the hold line -->
     <section class="channel" id="ch2" aria-labelledby="hold-title">
+      <img class="deco deco-tape" src="assets/art/props/tape.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
+      <img class="deco deco-pizza" src="assets/art/props/pizza.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
       <p class="ch-tag">CH II</p>
       <h2 id="hold-title">Join Pat on hold.</h2>
       <p class="lede">He has been on this call with GTA VI since 2013. There is music. There is a menu. Every option leads to option 3.</p>
@@ -159,7 +175,11 @@
       <p class="ch-tag">CH III</p>
       <h2 id="still-title">Do nothing. Beat Pat.</h2>
       <p class="lede">Press start. Then don't touch anything. No mouse, no keys, no scrolling, no other tabs. It is harder than it sounds. Pat's record is 13 years.</p>
-      <p class="still-clock" id="still-clock" role="timer">00:00:00</p>
+      <div class="still-wrap">
+        <p class="still-clock" id="still-clock" role="timer">00:00:00</p>
+        <div class="lava" aria-hidden="true"><i class="lava-cap"></i><span class="lava-glass"><b></b><b></b><b></b><b></b></span><i class="lava-base"></i></div>
+        <img class="deco deco-can" src="assets/art/props/can.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
+      </div>
       <p class="still-line" id="still-line" aria-live="polite"></p>
       <button type="button" class="btn" id="still-start">Start waiting</button>
       <p class="still-best muted" id="still-best"></p>
@@ -171,6 +191,7 @@
 
     <!-- CH IV: generator + community -->
     <section class="channel" id="ch4" aria-labelledby="gen-title">
+      <img class="deco deco-coins" src="assets/art/props/coins.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
       <p class="ch-tag">CH IV</p>
       <h2 id="gen-title">How long have <em>you</em> been waiting?</h2>
       <p class="lede">Everything stays on your device. Nothing is uploaded. To share on X, download the card and attach it.</p>
@@ -193,6 +214,7 @@
         </div>
       </div>
       <div class="community" id="community">
+        <img class="king" src="assets/art/king-of-memes.webp" alt="Pat in a crown with his dog, on a pile of gold coins: King of Memes" width="720" height="720" loading="lazy">
         <h3 id="comm-title">The waiting room</h3>
         <!-- Text from Voice's pack (js/voice-pack.js, communityBlurb). Later: optional `community` from /api/state. -->
         <p id="community-text" class="muted"></p>
@@ -202,6 +224,7 @@
 
     <!-- CH V: meme kit -->
     <section class="channel" id="ch5" aria-labelledby="kit-title">
+      <img class="deco deco-controller" src="assets/art/props/controller.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
       <p class="ch-tag">CH V</p>
       <h2 id="make-title">Make your own Pat.</h2>
       <p class="lede">Pick a pose, a face, a hat and a sky. Drag him around. Write anything. Download it and post it. Nothing is uploaded.</p>
@@ -289,6 +312,7 @@
   </main>
 
   <footer class="footer">
+    <img class="deco deco-crown" src="assets/art/props/crown.svg" alt="" aria-hidden="true" width="120" height="120" loading="lazy" draggable="false">
     <!-- APPROVED(site footer source-of-truth line + disclaimer): Voice 2026-11-03, Datuna 2026-11-03 02:10 IL ("מאשר את כל 10 הטקסטים של Voice"). = SOURCE_OF_TRUTH_SITE in js/shared-copy.js (check.mjs keeps them equal). -->
     <p class="source-of-truth"><strong>The only real site link is the one in our X bio (@datuna_memecoin) and in the pinned Telegram message. Anything else is fake.</strong></p>
     <p class="tm-note">GTA and Grand Theft Auto are trademarks of their owners. This is a fan joke about waiting, not their product.</p>

@@ -1,49 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="pat-title pat-desc">
-  <!-- Still Waiting - Pat's living room. FINAL house style (night / blue TV glow), Studio 2026-11-02. Signature trait: #headset inside #pat.
+  <!-- Still Waiting - Pat's living room. FINAL house style (night / purple TV glow, sunset window, lava lamp, dog (synthwave pass 2026-11-07)), Studio 2026-11-02. Signature trait: #headset inside #pat.
        Layer ids used by js/room.js (README): window, window-sky, window-orb, tv, tv-screen, tv-glow, couch, pat, eyes, eye-left, eye-right, dust, cobweb, clock, clock-hand, props.
        Notes: #eyes / #clock-hand / #window-orb carry NO transform of their own (room.js writes transform / cy). clock-hand pivots at 420,95.
        #tv-screen is the rect at 98,227 144x100 (the HTML .tv-strip overlay sits on top). No baked text anywhere. -->
   <title id="pat-title">Pat's living room</title>
   <desc id="pat-desc">A skeleton named Pat sits on a couch at night, lit by the blue glow of an old TV, remote in hand. He is waiting.</desc>
   <defs>
-    <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0D1A40"/><stop offset="1" stop-color="#081230"/></linearGradient>
+    <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E1050"/><stop offset="0.6" stop-color="#1F0A3A"/><stop offset="1" stop-color="#150627"/></linearGradient>
     <radialGradient id="g-tvglow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#4A86FF" stop-opacity="0.75"/><stop offset="0.5" stop-color="#2F66F0" stop-opacity="0.28"/><stop offset="1" stop-color="#1A3BA8" stop-opacity="0"/>
+      <stop offset="0" stop-color="#D45BFF" stop-opacity="0.7"/><stop offset="0.5" stop-color="#FF4FA3" stop-opacity="0.26"/><stop offset="1" stop-color="#7A1FA8" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="g-screen" cx="0.5" cy="0.45" r="0.65"><stop offset="0" stop-color="#6FA8FF"/><stop offset="0.7" stop-color="#3470F2"/><stop offset="1" stop-color="#1F49C8"/></radialGradient>
+    <radialGradient id="g-screen" cx="0.5" cy="0.45" r="0.65"><stop offset="0" stop-color="#E29BFF"/><stop offset="0.7" stop-color="#9A3CF0"/><stop offset="1" stop-color="#5A1FB0"/></radialGradient>
     <radialGradient id="g-lamp" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#8FB4FF" stop-opacity="0.18"/><stop offset="1" stop-color="#8FB4FF" stop-opacity="0"/></radialGradient>
     <!-- 2026-11-06 render upgrade: painted shading, TV-blue key light, neon pink/purple rim from the right. -->
     <radialGradient id="pat-skull-shade" cx="0.68" cy="0.3" r="0.85"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.45" stop-color="#F1F2FB"/><stop offset="0.8" stop-color="#C9C6EA"/><stop offset="1" stop-color="#9C94D2"/></radialGradient>
     <linearGradient id="pat-rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF4FA3" stop-opacity="0.95"/><stop offset="0.22" stop-color="#C04CFF" stop-opacity="0.35"/><stop offset="0.45" stop-color="#C04CFF" stop-opacity="0"/></linearGradient>
-    <linearGradient id="g-couch-back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2466"/><stop offset="0.5" stop-color="#1B1F52"/><stop offset="1" stop-color="#11173D"/></linearGradient>
-    <linearGradient id="g-couch-seat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E2A70"/><stop offset="1" stop-color="#151B45"/></linearGradient>
-    <linearGradient id="g-couch-arm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1A1F50"/><stop offset="0.5" stop-color="#2A2669"/><stop offset="1" stop-color="#151A44"/></linearGradient>
+    <linearGradient id="g-couch-back" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A1D6E"/><stop offset="0.5" stop-color="#33134F"/><stop offset="1" stop-color="#200A36"/></linearGradient>
+    <linearGradient id="g-couch-seat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55247A"/><stop offset="1" stop-color="#260D40"/></linearGradient>
+    <linearGradient id="g-couch-arm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2A0F45"/><stop offset="0.5" stop-color="#461C6A"/><stop offset="1" stop-color="#230B3B"/></linearGradient>
     <linearGradient id="g-neon-wash" x1="1" y1="0" x2="0" y2="0.3"><stop offset="0" stop-color="#C04CFF" stop-opacity="0.32"/><stop offset="0.35" stop-color="#FF4FA3" stop-opacity="0.10"/><stop offset="0.7" stop-color="#FF4FA3" stop-opacity="0"/></linearGradient>
-    <linearGradient id="g-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#140F3A"/><stop offset="1" stop-color="#05071A"/></linearGradient>
+    <linearGradient id="g-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#25093C"/><stop offset="1" stop-color="#0A0312"/></linearGradient>
     <radialGradient id="g-vignette" cx="0.5" cy="0.48" r="0.75"><stop offset="0.6" stop-color="#03040F" stop-opacity="0"/><stop offset="1" stop-color="#03040F" stop-opacity="0.55"/></radialGradient>
     <radialGradient id="g-window-spill" cx="0.5" cy="0" r="1"><stop offset="0" stop-color="#FF7A6B" stop-opacity="0.22"/><stop offset="1" stop-color="#C04CFF" stop-opacity="0"/></radialGradient>
   </defs>
 
   <g id="room">
     <rect width="800" height="500" fill="url(#g-wall)"/>
-    <g opacity="0.07" stroke="#8FA0FF" stroke-width="10"><line x1="20" y1="0" x2="20" y2="395"/><line x1="68" y1="0" x2="68" y2="395"/><line x1="116" y1="0" x2="116" y2="395"/><line x1="164" y1="0" x2="164" y2="395"/><line x1="212" y1="0" x2="212" y2="395"/><line x1="260" y1="0" x2="260" y2="395"/><line x1="308" y1="0" x2="308" y2="395"/><line x1="356" y1="0" x2="356" y2="395"/><line x1="404" y1="0" x2="404" y2="395"/><line x1="452" y1="0" x2="452" y2="395"/><line x1="500" y1="0" x2="500" y2="395"/><line x1="548" y1="0" x2="548" y2="395"/><line x1="596" y1="0" x2="596" y2="395"/><line x1="644" y1="0" x2="644" y2="395"/><line x1="692" y1="0" x2="692" y2="395"/><line x1="740" y1="0" x2="740" y2="395"/><line x1="788" y1="0" x2="788" y2="395"/></g>
+    <g opacity="0.06" stroke="#FF8AD8" stroke-width="10"><line x1="20" y1="0" x2="20" y2="395"/><line x1="68" y1="0" x2="68" y2="395"/><line x1="116" y1="0" x2="116" y2="395"/><line x1="164" y1="0" x2="164" y2="395"/><line x1="212" y1="0" x2="212" y2="395"/><line x1="260" y1="0" x2="260" y2="395"/><line x1="308" y1="0" x2="308" y2="395"/><line x1="356" y1="0" x2="356" y2="395"/><line x1="404" y1="0" x2="404" y2="395"/><line x1="452" y1="0" x2="452" y2="395"/><line x1="500" y1="0" x2="500" y2="395"/><line x1="548" y1="0" x2="548" y2="395"/><line x1="596" y1="0" x2="596" y2="395"/><line x1="644" y1="0" x2="644" y2="395"/><line x1="692" y1="0" x2="692" y2="395"/><line x1="740" y1="0" x2="740" y2="395"/><line x1="788" y1="0" x2="788" y2="395"/></g>
     <rect width="800" height="500" fill="url(#g-neon-wash)"/>
     <path d="M602,205 L520,395 H800 V205 Z" fill="url(#g-window-spill)"/>
     <rect y="395" width="800" height="105" fill="url(#g-floor)"/>
-    <g stroke="#2A2470" stroke-width="2" opacity="0.6"><path d="M0,418 H800 M0,446 H800 M0,478 H800"/><path d="M120,395 L100,418 M330,418 L318,446 M560,446 L552,478 M700,395 L690,418 M240,446 L228,478 M450,395 L444,418"/></g>
-    <rect y="388" width="800" height="8" fill="#1A1650"/>
-    <path d="M0,395 H800" stroke="#5B4BD6" stroke-width="3" opacity="0.8"/>
-    <ellipse cx="470" cy="452" rx="300" ry="32" fill="#0A1433"/>
-    <ellipse cx="470" cy="452" rx="270" ry="24" fill="none" stroke="#1C2F6E" stroke-width="3" stroke-dasharray="10 8"/>
+    <g stroke="#4A1A6A" stroke-width="2" opacity="0.6"><path d="M0,418 H800 M0,446 H800 M0,478 H800"/><path d="M120,395 L100,418 M330,418 L318,446 M560,446 L552,478 M700,395 L690,418 M240,446 L228,478 M450,395 L444,418"/></g>
+    <rect y="388" width="800" height="8" fill="#2E0E4A"/>
+    <path d="M0,395 H800" stroke="#FF4FA3" stroke-width="3" opacity="0.75"/>
+    <ellipse cx="470" cy="452" rx="300" ry="32" fill="#1C0830"/>
+    <ellipse cx="470" cy="452" rx="270" ry="24" fill="none" stroke="#7A2A8E" stroke-width="3" stroke-dasharray="10 8"/>
   </g>
 
   <g id="window">
-    <rect x="602" y="62" width="166" height="136" rx="6" fill="#0B1533" stroke="#070D22" stroke-width="5"/>
+    <rect x="602" y="62" width="166" height="136" rx="6" fill="#1A0A2E" stroke="#070D22" stroke-width="5"/>
     <rect id="window-sky" x="610" y="70" width="150" height="120" fill="#16213a"/>
     <circle id="window-orb" cx="722" cy="100" r="14" fill="#e8e3c8"/>
-    <rect x="682" y="70" width="6" height="120" fill="#0B1533"/>
-    <rect x="610" y="127" width="150" height="6" fill="#0B1533"/>
-    <rect x="594" y="196" width="182" height="9" rx="3" fill="#101C42" stroke="#070D22" stroke-width="3"/>
+    <g id="window-sunset" pointer-events="none"><!-- 2026-11-07 synthwave pass: a striped sun sinking behind palms, always there whatever the sky -->
+      <defs><clipPath id="win-clip"><rect x="610" y="70" width="150" height="120"/></clipPath>
+        <linearGradient id="g-sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD36E"/><stop offset="0.5" stop-color="#FF7A59"/><stop offset="1" stop-color="#FF3E8A"/></linearGradient>
+        <linearGradient id="g-haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4FA3" stop-opacity="0"/><stop offset="1" stop-color="#FF4FA3" stop-opacity="0.55"/></linearGradient></defs>
+      <g clip-path="url(#win-clip)">
+        <rect x="610" y="120" width="150" height="70" fill="url(#g-haze)"/>
+        <circle cx="668" cy="178" r="34" fill="url(#g-sun)"/>
+        <g fill="#2A0F45"><rect x="630" y="160" width="80" height="3"/><rect x="630" y="167" width="80" height="4"/><rect x="630" y="175" width="80" height="5"/><rect x="630" y="184" width="80" height="6"/></g>
+        <path d="M610,184 Q640,176 668,182 T760,178 V190 H610 Z" fill="#12051F"/>
+        <g fill="#12051F">
+          <path d="M628,190 Q631,160 640,128 L642,129 Q635,160 633,190 Z"/>
+          <path d="M641,129 Q626,122 614,132 Q628,124 640,131 Q626,134 618,146 Q631,134 641,132 Q636,142 636,154 Q641,140 643,131 Q650,140 660,141 Q650,133 644,130 Q656,124 668,130 Q656,120 643,128 Q646,118 640,110 Q642,120 641,129 Z"/>
+          <path d="M738,190 Q737,165 744,140 L746,141 Q741,165 743,190 Z"/>
+          <path d="M745,141 Q733,134 722,142 Q734,137 744,143 Q733,147 728,157 Q738,147 745,144 Q744,152 746,162 Q748,151 747,143 Q756,150 764,150 Q756,143 748,142 Q758,136 768,142 Q758,132 747,140 Q749,131 744,124 Q746,133 745,141 Z"/>
+        </g>
+      </g>
+    </g>
+    <rect x="682" y="70" width="6" height="120" fill="#1A0A2E"/>
+    <rect x="610" y="127" width="150" height="6" fill="#1A0A2E"/>
+    <rect x="594" y="196" width="182" height="9" rx="3" fill="#2A0F45" stroke="#070D22" stroke-width="3"/>
   </g>
 
   <g id="clock">
@@ -58,10 +75,24 @@
     <path d="M18 14 Q30 20 20 35 Q12 22 6 22 M36 28 Q55 30 44 56 Q26 46 12 46 M54 42 Q80 44 68 78 Q40 66 18 70"/>
   </g>
 
-  <g id="lamp">
-    <ellipse cx="780" cy="240" rx="70" ry="110" fill="url(#g-lamp)"/>
-    <rect x="777" y="250" width="6" height="145" fill="#0E1838"/>
-    <path d="M752 250 L800 250 L800 205 L765 205 Z" fill="#14224D" stroke="#070D22" stroke-width="3"/>
+  <g id="lamp"><!-- lava lamp on a side table (2026-11-07). Blobs move in css/style.css (.lava-blob) -->
+   <g transform="translate(-50 0)">
+    <defs><radialGradient id="g-lava-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF7A3D" stop-opacity="0.45"/><stop offset="0.5" stop-color="#FF4F8B" stop-opacity="0.14"/><stop offset="1" stop-color="#FF4F8B" stop-opacity="0"/></radialGradient>
+      <linearGradient id="g-lava-glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF4F6A"/><stop offset="0.5" stop-color="#FF9A3D"/><stop offset="1" stop-color="#E0306A"/></linearGradient>
+      <clipPath id="lava-clip"><path d="M752,236 L770,236 L780,300 L742,300 Z"/></clipPath></defs>
+    <ellipse cx="761" cy="275" rx="95" ry="120" fill="url(#g-lava-glow)"/>
+    <rect x="726" y="318" width="70" height="10" rx="3" fill="#2A0F45" stroke="#070D22" stroke-width="3"/>
+    <rect x="734" y="328" width="6" height="67" fill="#1A0729"/><rect x="782" y="328" width="6" height="67" fill="#1A0729"/>
+    <path d="M748,228 L774,228 L770,236 L752,236 Z" fill="#3B2A55" stroke="#070D22" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M752,236 L770,236 L780,300 L742,300 Z" fill="url(#g-lava-glass)" stroke="#070D22" stroke-width="2.5" stroke-linejoin="round"/>
+    <g clip-path="url(#lava-clip)" fill="#FFE27A">
+      <ellipse class="lava-blob lava-b1" cx="758" cy="288" rx="9" ry="7"/>
+      <ellipse class="lava-blob lava-b2" cx="764" cy="262" rx="6" ry="8"/>
+      <ellipse class="lava-blob lava-b3" cx="756" cy="246" rx="4" ry="5"/>
+    </g>
+    <path d="M756,240 L752,294" stroke="#FFFFFF" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+    <path d="M742,300 L780,300 L786,318 L736,318 Z" fill="#3B2A55" stroke="#070D22" stroke-width="2.5" stroke-linejoin="round"/>
+   </g>
   </g>
 
   <g id="tv">
@@ -78,6 +109,38 @@
     <line x1="200" y1="215" x2="225" y2="178" stroke="#3B4A75" stroke-width="2"/>
   </g>
   <ellipse id="tv-glow" cx="190" cy="275" rx="290" ry="210" fill="url(#g-tvglow)" opacity="0.6" pointer-events="none"/>
+
+  <g id="room-extras" pointer-events="none"><!-- 2026-11-07: calendar, energy can, controller, coin stack -->
+    <g id="calendar" transform="rotate(-3 308 275)">
+      <rect x="272" y="222" width="74" height="112" rx="2" fill="#F4E7D0" stroke="#070D22" stroke-width="3"/>
+      <rect x="272" y="222" width="74" height="13" fill="#E0306A"/>
+      <circle cx="309" cy="220" r="3" fill="#070D22"/>
+      <g font-family="monospace" font-size="8.5" font-weight="700" fill="#3A2A4A" stroke="none"><text x="280" y="246">2013</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,243 h22" /><text x="280" y="256">2014</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,253 h22" /><text x="280" y="266">2015</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,263 h22" /><text x="280" y="276">2016</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,273 h22" /><text x="280" y="286">2017</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,283 h22" /><text x="280" y="296">2018</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,293 h22" /><text x="280" y="306">2019</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M279,303 h22" /><text x="314" y="246">2020</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,243 h22" /><text x="314" y="256">2021</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,253 h22" /><text x="314" y="266">2022</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,263 h22" /><text x="314" y="276">2023</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,273 h22" /><text x="314" y="286">2024</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,283 h22" /><text x="314" y="296">2025</text><path stroke="#E0306A" stroke-width="1.6" fill="none" d="M313,293 h22" /></g>
+      <text x="292" y="327" font-family="monospace" font-size="10" font-weight="800" fill="#E0306A">2026?</text>
+      <ellipse cx="306" cy="323" rx="20" ry="9" fill="none" stroke="#E0306A" stroke-width="2"/>
+    </g>
+    <g id="energy-can">
+      <rect x="256" y="318" width="15" height="27" rx="3" fill="#121018" stroke="#070D22" stroke-width="2.5"/>
+      <rect x="257.5" y="320" width="12" height="3" fill="#8A8A9A"/>
+      <path d="M259,326 l2,14 M263.5,326 l0,14 M268,326 l-2,14" stroke="#7CFF4F" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="controller" transform="rotate(-8 566 440)">
+      <path d="M540,432 Q546,424 556,428 H576 Q586,424 592,432 L598,450 Q600,458 592,458 Q586,458 582,450 H550 Q546,458 540,458 Q532,458 534,450 Z" fill="#1E1730" stroke="#070D22" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="584" cy="437" r="2.2" fill="#3DF2F5"/><circle cx="589" cy="441" r="2.2" fill="#FF4FB0"/><circle cx="579" cy="441" r="2.2" fill="#FFC83D"/>
+      <path d="M548,439 h8 M552,435 v8" stroke="#6A5A9A" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M561,436 h10" stroke="#9B4DFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="coin-stack">
+      <defs><linearGradient id="g-coin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B8801F"/><stop offset="0.45" stop-color="#FFE27A"/><stop offset="1" stop-color="#C8902A"/></linearGradient>
+        <linearGradient id="g-sol" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9B4DFF"/><stop offset="1" stop-color="#3DF2F5"/></linearGradient></defs>
+      <g stroke="#070D22" stroke-width="1.5">
+        <rect x="697" y="386" width="28" height="7" rx="3" fill="url(#g-coin)"/><rect x="699" y="380" width="28" height="7" rx="3" fill="url(#g-coin)"/>
+        <rect x="696" y="374" width="28" height="7" rx="3" fill="url(#g-coin)"/><rect x="698" y="368" width="28" height="7" rx="3" fill="url(#g-coin)"/>
+      </g>
+      <g transform="rotate(-14 742 380)"><circle cx="742" cy="380" r="12" fill="url(#g-coin)" stroke="#070D22" stroke-width="2"/>
+        <path d="M736,375 h10 l2,-2 h-10 Z M736,381 h10 l2,-2 h-10 Z M736,387 h10 l2,-2 h-10 Z" fill="url(#g-sol)" stroke="none"/></g>
+    </g>
+  </g>
 
   <g id="props"><!-- Studio props (for-builder/props/props.svg, same 800x500 coords), all display="none"; js/props.js toggles them -->
 <g id="prop-pizza" display="none" data-prop="pizza"><path d="M298,438 L378,438 L371,402 L305,402 Z" fill="#33395C" stroke="#070D22" stroke-width="3" stroke-linejoin="round"/>
@@ -99,7 +162,7 @@
 <rect x="220" y="690" width="580" height="150" rx="30" fill="url(#g-couch-seat)" stroke="#070D22" stroke-width="8" stroke-linejoin="round"/>
 <rect x="120" y="600" width="140" height="270" rx="55" fill="url(#g-couch-arm)" stroke="#070D22" stroke-width="8" stroke-linejoin="round"/>
 <rect x="760" y="600" width="140" height="270" rx="55" fill="url(#g-couch-arm)" stroke="#070D22" stroke-width="8" stroke-linejoin="round"/>
-<rect x="210" y="832" width="600" height="45" rx="14" fill="#100E33" stroke="#070D22" stroke-width="8" stroke-linejoin="round"/>
+<rect x="210" y="832" width="600" height="45" rx="14" fill="#1A0729" stroke="#070D22" stroke-width="8" stroke-linejoin="round"/>
 <rect x="240" y="874" width="30" height="40" rx="6" fill="#070D22"/>
 <rect x="750" y="874" width="30" height="40" rx="6" fill="#070D22"/>
 <path d="M510,490 V700" stroke="#0B0E2C" stroke-width="7" stroke-linecap="round" opacity="0.8"/><path d="M510,700 V832" stroke="#0B0E2C" stroke-width="7" stroke-linecap="round" opacity="0.8"/><circle cx="300" cy="545" r="9" fill="#0B0E2C"/><circle cx="298" cy="542" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="300" cy="625" r="9" fill="#0B0E2C"/><circle cx="298" cy="622" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="420" cy="545" r="9" fill="#0B0E2C"/><circle cx="418" cy="542" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="420" cy="625" r="9" fill="#0B0E2C"/><circle cx="418" cy="622" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="600" cy="545" r="9" fill="#0B0E2C"/><circle cx="598" cy="542" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="600" cy="625" r="9" fill="#0B0E2C"/><circle cx="598" cy="622" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="720" cy="545" r="9" fill="#0B0E2C"/><circle cx="718" cy="542" r="3" fill="#5B54C8" opacity="0.7"/><circle cx="720" cy="625" r="9" fill="#0B0E2C"/><circle cx="718" cy="622" r="3" fill="#5B54C8" opacity="0.7"/><path d="M240,712 Q500,700 780,712" fill="none" stroke="#6D5CF0" stroke-width="5" stroke-linecap="round" opacity="0.55"/><path d="M215,486 Q510,470 805,486" fill="none" stroke="#FF6FB5" stroke-width="5" stroke-linecap="round" opacity="0.45"/><path d="M330,760 q40,-14 80,0 M620,790 q30,-10 60,0" fill="none" stroke="#0B0E2C" stroke-width="5" stroke-linecap="round" opacity="0.6"/><path d="M560,476 H790 Q828,476 828,520" fill="none" stroke="#8C7CFF" stroke-width="6" stroke-linecap="round"/>
@@ -154,6 +217,14 @@
         <path id="eye-right" d="M535 232 Q568 202 602 232" fill="none" stroke="#0A1128" stroke-width="17" stroke-linecap="round"/>
       </g>
       <g id="headset"><!-- signature trait: call-center headset (band, ear cup, mic). Static; does not touch #eyes. -->
+<g id="cap"><!-- 2026-11-07: Pat's cap, headphones over it, like the community art. Gold crown = $WAITING. -->
+<path d="M648,194 Q722,186 766,214 Q722,230 652,224 Z" fill="#2B2045" stroke="#0A1128" stroke-width="8" stroke-linejoin="round"/>
+<path d="M332,216 C320,18 680,18 668,216 Q500,186 332,216 Z" fill="#2B2045" stroke="#0A1128" stroke-width="8" stroke-linejoin="round"/>
+<path d="M500,70 Q468,150 474,200 M500,70 Q562,140 602,198" fill="none" stroke="#3A2E58" stroke-width="5"/>
+<path d="M350,170 C380,110 430,84 470,78" fill="none" stroke="#6A5A9A" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+<path d="M462,168 L456,128 L480,148 L500,116 L520,148 L544,128 L538,168 Z" fill="#FFC83D" stroke="#0A1128" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="500" cy="68" r="11" fill="#3A2E58" stroke="#0A1128" stroke-width="6"/>
+</g>
 <path d="M323.1,229.3 L329.6,210.6 L338.0,192.7 L348.3,175.8 L360.4,160.1 L374.1,145.8 L389.2,133.0 L405.7,122.0 L423.2,112.8 L441.6,105.5 L460.7,100.2 L480.2,97.0 L500.0,96.0 L519.8,97.0 L539.3,100.2 L558.4,105.5 L576.8,112.8 L594.3,122.0 L610.8,133.0 L625.9,145.8 L639.6,160.1 L651.7,175.8 L662.0,192.7 L670.4,210.6 L676.9,229.3" fill="none" stroke="#E6F0FF" stroke-width="46.0" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M323.1,229.3 L329.6,210.6 L338.0,192.7 L348.3,175.8 L360.4,160.1 L374.1,145.8 L389.2,133.0 L405.7,122.0 L423.2,112.8 L441.6,105.5 L460.7,100.2 L480.2,97.0 L500.0,96.0 L519.8,97.0 L539.3,100.2 L558.4,105.5 L576.8,112.8 L594.3,122.0 L610.8,133.0 L625.9,145.8 L639.6,160.1 L651.7,175.8 L662.0,192.7 L670.4,210.6 L676.9,229.3" fill="none" stroke="#0A1128" stroke-width="32.0" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M323.1,229.3 L329.6,210.6 L338.0,192.7 L348.3,175.8 L360.4,160.1 L374.1,145.8 L389.2,133.0 L405.7,122.0 L423.2,112.8 L441.6,105.5 L460.7,100.2 L480.2,97.0 L500.0,96.0 L519.8,97.0 L539.3,100.2 L558.4,105.5 L576.8,112.8 L594.3,122.0 L610.8,133.0 L625.9,145.8 L639.6,160.1 L651.7,175.8 L662.0,192.7 L670.4,210.6 L676.9,229.3" fill="none" stroke="#2A3350" stroke-width="16.0" stroke-linecap="round" stroke-linejoin="round"/>
@@ -170,7 +241,27 @@
     </g>
   </g>
 
-  <g id="dust" fill="#C9D6F2" opacity="0.7">
+  <g id="dog" pointer-events="none"><!-- 2026-11-07: Pat's dog. Golden retriever, sunglasses, asleep. Has been waiting just as long. -->
+    <defs><radialGradient id="g-fur" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#F7C46A"/><stop offset="0.6" stop-color="#E09A45"/><stop offset="1" stop-color="#A9612A"/></radialGradient></defs>
+    <path d="M548,318 C546,296 566,284 592,286 C612,288 626,296 628,312 C629,320 620,324 600,324 L560,324 C552,324 548,322 548,318 Z" fill="url(#g-fur)" stroke="#0A1128" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M556,302 q4,-4 8,0 M570,294 q4,-4 8,0 M586,292 q4,-4 8,0" fill="none" stroke="#B8702F" stroke-width="2" stroke-linecap="round"/>
+    <path d="M556,320 C552,326 554,333 562,334 C570,335 572,328 570,322" fill="#E9A852" stroke="#0A1128" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M548,312 C538,310 532,302 536,296" fill="none" stroke="#C9803A" stroke-width="7" stroke-linecap="round"/>
+    <path d="M548,312 C538,310 532,302 536,296" fill="none" stroke="#0A1128" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    <g transform="translate(628 290) rotate(8)">
+      <path d="M-22,-4 C-22,-22 -6,-30 8,-28 C24,-26 30,-12 28,2 C26,14 14,20 0,20 C-14,20 -22,10 -22,-4 Z" fill="url(#g-fur)" stroke="#0A1128" stroke-width="3"/>
+      <path d="M-18,-16 C-30,-14 -34,2 -28,16 C-24,22 -16,18 -14,10 C-13,2 -14,-8 -18,-16 Z" fill="#B8702F" stroke="#0A1128" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M22,-18 C34,-14 38,0 34,12 C30,18 24,16 22,8 Z" fill="#B8702F" stroke="#0A1128" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M-8,6 C-6,18 14,20 18,8 C16,2 -6,0 -8,6 Z" fill="#F7D79A" stroke="#0A1128" stroke-width="2.5"/>
+      <ellipse cx="5" cy="5" rx="5" ry="3.5" fill="#1A0F12"/>
+      <path d="M5,9 Q5,13 1,14 M5,9 Q5,13 9,14" fill="none" stroke="#1A0F12" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-17,-11 H24 V-9 L22,-2 Q19,3 12,2 Q6,1 5,-6 H0 Q-1,1 -7,2 Q-14,3 -16,-2 Z" fill="#0B0714" stroke="#0A1128" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M-13,-8 L-9,-8 M10,-8 L14,-8" stroke="#FF6FD0" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <text class="dog-z" x="652" y="262" fill="#CDB6E0" font-size="12" font-weight="700" font-family="monospace">z</text>
+  </g>
+
+  <g id="dust" fill="#FFD9F2" opacity="0.7">
     <circle cx="560" cy="250" r="1.6"/><circle cx="640" cy="225" r="1.2"/><circle cx="330" cy="160" r="1.4"/>
   </g>
   <rect width="800" height="500" fill="url(#g-vignette)" pointer-events="none"/>

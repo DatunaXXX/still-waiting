@@ -48,7 +48,7 @@ export async function mountRoom(container) {
 // The room fills the screen. On a phone the shot moves in on Pat instead of squeezing the whole room.
 function fitPortrait(svg) {
   const q = window.matchMedia('(max-aspect-ratio: 1/1)');
-  const apply = () => svg.setAttribute('viewBox', q.matches ? '80 -220 500 720' : '0 0 800 500');
+  const apply = () => svg.setAttribute('viewBox', q.matches ? '70 -250 600 864' : '0 0 800 500');
   q.addEventListener('change', apply);
   apply();
 }
@@ -110,7 +110,7 @@ export function ageRoom(room, p, { showProps = true } = {}) {
   } else {
     room.aged = true;
     const wave = (Math.sin(p * Math.PI * 16) + 1) / 2; // 8 slow day/night rounds, slow enough not to strobe
-    room.sky?.setAttribute('fill', hexLerp('#16213a', '#8cc7e8', wave));
+    room.sky?.setAttribute('fill', hexLerp('#2A1050', '#8cc7e8', wave));
     room.orb?.setAttribute('fill', hexLerp('#e8e3c8', '#fff6d2', wave));
     room.orb?.setAttribute('cy', (165 - wave * 75).toFixed(0));
     room.clockHand?.setAttribute('transform', `rotate(${(p * 360 * 13).toFixed(1)} 420 95)`);
@@ -130,7 +130,7 @@ function paintWindow(room, now = new Date()) {
   if (room.aged) return;
   const h = now.getHours();
   const phase = h >= 5 && h < 9 ? 'morning' : h >= 9 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'sunset' : 'night';
-  const sky = { morning: '#f3b48a', day: '#8cc7e8', sunset: '#d9725a', night: '#16213a' }[phase];
+  const sky = { morning: '#f3b48a', day: '#8cc7e8', sunset: '#d9725a', night: '#2A1050' }[phase];
   const orb = { morning: '#ffe7a8', day: '#fff6d2', sunset: '#ffcf70', night: '#e8e3c8' }[phase];
   room.sky?.setAttribute('fill', sky);
   room.orb?.setAttribute('fill', orb);

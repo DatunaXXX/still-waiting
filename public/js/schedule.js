@@ -6,9 +6,9 @@ export const TZ = 'Asia/Jerusalem';
 export const WAIT_START = { y: 2013, m: 9, d: 17 };      // the day the waiting began
 export const GAME_DAY = { y: 2026, m: 11, d: 19 };       // "November 19"
 export const STORY_START = { y: 2026, m: 11, d: 4, h: 20, mi: 0 }; // event #0 of the story calendar; the dated events and reveals hang off this
-export let LAUNCH = { y: 2026, m: 11, d: 6, h: 20, mi: 0 }; // launch, IL time. The room opens on whichever story slot falls here, so the story still ends Nov 19
+export let LAUNCH = { y: 2026, m: 11, d: 8, h: 22, mi: 0 }; // launch, IL time. The room opens on whichever story slot falls here, so the story still ends Nov 19
 // Nothing goes live on a date alone: launch state stays off until Datuna decides and this is flipped by hand.
-export let LAUNCH_CONFIRMED = false;
+export let LAUNCH_CONFIRMED = true;
 /** Tests only. `at` replaces the launch moment, e.g. STORY_START for the original calendar. */
 export const setLaunchConfirmed = (v, at = null) => { LAUNCH_CONFIRMED = Boolean(v); if (at) LAUNCH = at; };
 export const FREEZE = { y: 2026, m: 11, d: 6, h: 18, mi: 0 }; // code freeze, IL time
@@ -95,8 +95,7 @@ export function eventSlots(date = new Date()) {
  */
 export function eventIndex(date = new Date()) {
   if (!LAUNCH_CONFIRMED) return -1;
-  const raw = storySlot(date);
-  return raw < storySlot(launchDate()) ? -1 : raw; // before launch: nothing has happened yet, however far the calendar has run
+  return date < launchDate() ? -1 : storySlot(date); // compares the moment, not the slot: launch can fall in the middle of a 4-hour slot
 }
 
 function storySlot(date) {

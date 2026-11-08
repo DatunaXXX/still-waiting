@@ -4,7 +4,7 @@
 import { PACK } from './voice-pack.js';
 import { firstEventIndex } from './schedule.js';
 
-export const PRE_LAUNCH = { text: PACK.site.preLaunch.replace('Wednesday', 'Friday') }; // pack text predates the move to Friday Nov 6
+export const PRE_LAUNCH = { text: PACK.site.preLaunch.replace('Wednesday', 'Sunday').replace('20:00', '22:00') }; // pack text predates the move to Sunday Nov 8, 22:00
 export const EVENTS = PACK.events.map(({ text, prop }) => ({ text, prop }));
 export const LAST_EVENT = EVENTS.length - 1;
 

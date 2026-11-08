@@ -1,5 +1,7 @@
 // Site settings. The contract address is NOT configured here: the single source is the TOKEN_MINT env var,
 // served by /api/state as `ca` (site) and read directly by the Telegram bot.
 export const STATE_POLL_MS = 180_000; // every 3 minutes per open tab: the free hosting plan allows 100,000 function calls a day
-// Official links, given by Datuna 2026-11-05; Telegram group updated 2026-11-06. No buy/pump.fun links before launch.
-export const LINKS = { x: 'https://x.com/datuna_memecoin', telegram: 'https://t.me/+ic_BeLEmz1ZiNmJk' };
+// Official links, given by Datuna 2026-11-05; Telegram group: permanent public address since 2026-11-08.
+export const LINKS = { x: 'https://x.com/datuna_memecoin', telegram: 'https://t.me/still_waiting_pat' };
+// Buy link next to the CA (Datuna 2026-11-08). Built from the served CA only, so it can never point at a different coin.
+export const buyUrl = (ca) => `https://pump.fun/coin/${encodeURIComponent(ca)}`;

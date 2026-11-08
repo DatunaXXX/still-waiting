@@ -17,6 +17,7 @@ import { mountWanted, bootScreen } from './wanted.js';
 import { mountHoverbike } from './hoverbike.js';
 import { mountSoundButton } from './sfx.js';
 import { mountMakePat } from './makepat.js';
+import { buyUrl } from './config.js';
 
 const $ = (id) => document.getElementById(id);
 const SEEN_KEY = 'sw:lastSeenEvent';
@@ -36,6 +37,9 @@ function setCA(ca) {
     try { await navigator.clipboard.writeText(shownCA); b.textContent = 'Copied'; } catch { b.textContent = 'Copy failed'; }
     setTimeout(() => (b.textContent = 'Copy'), 1500);
   };
+  const buy = $('ca-buy');
+  buy.href = buyUrl(ca);
+  buy.hidden = false;
 }
 
 const CA_MISSING = "Couldn't load the address. Check the pinned post in our official Telegram or X."; // copy: Voice may adjust
@@ -137,13 +141,13 @@ function tick() {
     $('launch-time').textContent = 'Live';
   } else {
     $('launch-time').textContent = fmtCountdown(lc.ms);
-    $('launch-when').textContent = 'Fri Nov 6, 20:00 Israel time';
+    $('launch-when').textContent = 'Sun Nov 8, 22:00 Israel time';
   }
 
   if (!lc.launched) {
     // Before launch nothing happens at the 4h slots: the next event IS the launch.
     $('next-event').textContent = fmtCountdown(lc.ms);
-    $('next-event-at').textContent = `(Fri 20:00 Israel time, ${localDayTime(launchDate())} your time: the room opens)`;
+    $('next-event-at').textContent = `(Sun 22:00 Israel time, ${localDayTime(launchDate())} your time: the room opens)`;
     setClock(room, Math.min(lc.ms, 4 * 3600_000));
   } else if (eventIndex(now) >= LAST_EVENT) {
     // After the last event (#90, Nov 19 16:00 IL) nothing new happens: no "next event" countdown.
